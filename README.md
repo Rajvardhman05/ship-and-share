@@ -9,8 +9,10 @@ gone and the blank box wins.
 So I gave my coding agent one more job. When we solve something a stranger would stop scrolling for,
 it says so and drafts the post. Most days it says nothing. That's the feature.
 
-It is a [Claude Code skill](skills/ship-and-share/SKILL.md) and a [Cursor rule](cursor/ship-and-share.mdc).
-Plain markdown, no code, no API keys. **The agent drafts. You post.** It never posts for you.
+It is an [Agent Skill](skills/ship-and-share/SKILL.md) in the open [`SKILL.md` format](https://agentskills.io),
+so any coding agent that loads skills can pick it up: Claude Code, Codex, Gemini CLI, GitHub Copilot,
+Cursor and others. There is also a [Cursor rule](cursor/ship-and-share.mdc) and an
+[`AGENTS.md` snippet](AGENTS-snippet.md) for agents that don't. Plain markdown, no code, no API keys. **The agent drafts. You post.** It never posts for you.
 
 ## How you use it
 
@@ -97,13 +99,27 @@ the drafts, and add one line to the closing message. If nothing clears the bar, 
 mkdir -p .cursor/rules && cp ship-and-share/cursor/ship-and-share.mdc .cursor/rules/
 ```
 
-**Other agents.** The rule file is plain markdown. Pasting it into an `AGENTS.md` or your agent's
-instructions file should work, but I have only run it in Claude Code and Cursor.
+**2c. Any other agent that supports Agent Skills** (Codex, Gemini CLI, GitHub Copilot, and
+[others](https://agentskills.io))
+
+Copy the `skills/ship-and-share` folder into your agent's skills directory. The location differs per
+agent, so check its docs. The skill file itself needs no changes.
+
+**3. The end-of-session nudge (all agents)**
+
+A skill loads when something calls for it. The nudge needs one always-on line so the agent remembers
+to check at the end of a session. Paste [`AGENTS-snippet.md`](AGENTS-snippet.md) into your `AGENTS.md`,
+or use the `CLAUDE.md` block above for Claude Code. The Cursor rule already includes it.
+
+**No skills support at all?** Paste the body of [`cursor/ship-and-share.mdc`](cursor/ship-and-share.mdc)
+into your agent's instructions file. It is the whole thing in one page.
 
 ## Status
 
 Built and used daily in Claude Code. The Cursor rule is the same rules in Cursor's format and is newer.
-If the bar feels too strict or too loose for you, edit the lists. They're yours.
+The skill follows the open Agent Skills format, so it should load anywhere that format is supported,
+but I have only run it in Claude Code and Cursor. If you try it elsewhere, open an issue and tell me
+how it went. If the bar feels too strict or too loose for you, edit the lists. They're yours.
 
 ## Why the bar is strict
 
