@@ -1,6 +1,6 @@
 ---
 name: ship-and-share
-description: Draft social posts (X, LinkedIn) from real work done in a coding session, for someone building in public. Load when the user says "share this" (convert it into drafts, no judging), when they say "let's share this" or ask "should we share this?" (run the postworthy test first, draft only on a yes), AND at the end of any session where something postworthy happened so the session can suggest it. Carries the postworthy test, the hard filters, per-platform formats, and where drafts go.
+description: Draft social posts (X, LinkedIn) from real work done in a coding session, for someone building in public. Load when the user says "share this" (convert it into drafts, no judging), when they say "let's share this" or ask "should we share this?" (run the postworthy test first, draft only on a yes), when they use any custom trigger phrase their instructions file maps to ship-and-share, AND at the end of any session where something postworthy happened so the session can suggest it. Carries the postworthy test, the hard filters, per-platform formats, and where drafts go.
 ---
 
 # Ship and share
@@ -22,7 +22,21 @@ If the folder or `voice.md` is missing, say so once, offer to create it from the
 repo's `templates/` folder, and ask the three questions the voice file needs: what are you building,
 who are you talking to, and what would you never say. Do not draft in a made-up voice.
 
+On first run, also ask once: "What do you want to say to trigger this?" Offer the defaults. If they
+pick their own phrases, give them the "Ship and share" block with those phrases filled in, to paste
+into their instructions file.
+
 ## Three trigger points
+
+The phrases below are the defaults. **The user can define their own.** If their always-on instructions
+(`CLAUDE.md`, `AGENTS.md`, a Cursor rule) list phrases under "Ship and share", those phrases win: a
+"convert" phrase behaves like trigger 1, a "judge first" phrase behaves like trigger 2, and their
+suggestion line replaces "Worth sharing". Match on meaning, not exact wording: "make it a tweet",
+"tweet this bro", "post-worthy?" are all fine if they mapped them.
+
+If they ask to change their phrases, do not store them in this skill's folder — a phrase kept there
+can never load the skill. Give them the updated "Ship and share" block to paste into their
+instructions file, or edit that file if they ask you to.
 
 **1. "Share this" — they have decided. Convert it.**
 Do not judge whether it is postworthy; that call is theirs. Turn what they pointed at (or this session,

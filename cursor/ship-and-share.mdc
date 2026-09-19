@@ -12,6 +12,14 @@ Files live in `$SHIP_AND_SHARE_DIR` or `~/.ship-and-share/`: `voice.md` (who the
 what they never say), `queue.md` (drafts, newest first), `platforms.md` (where they post). If `voice.md`
 is missing, say so once and offer to create it; do not draft in a made-up voice.
 
+## Your phrases (edit these — they are yours)
+
+- **Convert, I've decided:** "share this"
+- **Judge first, wake-up call:** "let's share this", "should we share this?"
+- **The agent's suggestion line:** "Worth sharing:"
+
+Match on meaning, not exact wording. Whatever is listed here wins over the defaults named below.
+
 ## Three trigger points
 
 1. **"Share this" — decided. Convert it.** No judging. 2–3 drafts with different angles (the number,

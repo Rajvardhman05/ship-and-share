@@ -22,6 +22,11 @@ Cursor and others. There is also a [Cursor rule](cursor/ship-and-share.mdc) and 
 | **"should we share this?"** | A wake-up call. It runs the postworthy test first. Drafts on a yes. On a no, it tells you why and what's missing. It is allowed to say no. |
 | *(nothing)* | At the end of a session where something cleared the bar, it adds one line: `Worth sharing: 2 drafts in the queue.` Otherwise, silence. |
 
+**The phrases are yours.** Those are the defaults. Say "make it a tweet", "tweet this bro" or
+"post-worthy?" instead if that's how you talk: list your phrases in the always-on block
+([step 3](#install)) and the agent uses them. You choose what converts, what asks for a verdict, and
+what the agent says when it nudges you.
+
 Every draft is shaped per platform (X and LinkedIn out of the box) and comes with a **Proof** line:
 the exact screenshot, chart or before/after to attach. Posts with proof travel. Claims don't.
 
@@ -84,14 +89,7 @@ ask you the three questions it needs on first run. To keep the files somewhere e
 mkdir -p ~/.claude/skills && cp -r ship-and-share/skills/ship-and-share ~/.claude/skills/
 ```
 
-For the end-of-session suggestion to fire reliably, add this to `~/.claude/CLAUDE.md`:
-
-```markdown
-## Ship and share
-At the end of a session with a genuinely postworthy moment, invoke the `ship-and-share` skill, queue
-the drafts, and add one line to the closing message. If nothing clears the bar, say nothing.
-"share this" converts without judging; "should we share this?" judges first.
-```
+Then do step 3. Claude Code reads the same block from `~/.claude/CLAUDE.md`.
 
 **2b. Cursor**
 
@@ -105,11 +103,13 @@ mkdir -p .cursor/rules && cp ship-and-share/cursor/ship-and-share.mdc .cursor/ru
 Copy the `skills/ship-and-share` folder into your agent's skills directory. The location differs per
 agent, so check its docs. The skill file itself needs no changes.
 
-**3. The end-of-session nudge (all agents)**
+**3. The always-on block: your phrases and the end-of-session nudge (all agents)**
 
-A skill loads when something calls for it. The nudge needs one always-on line so the agent remembers
-to check at the end of a session. Paste [`AGENTS-snippet.md`](AGENTS-snippet.md) into your `AGENTS.md`,
-or use the `CLAUDE.md` block above for Claude Code. The Cursor rule already includes it.
+A skill loads when something calls for it, and the agent only knows what calls for it from its
+always-on instructions. So your trigger phrases and the end-of-session nudge live in one short block.
+Paste [`AGENTS-snippet.md`](AGENTS-snippet.md) into your `AGENTS.md` (or `~/.claude/CLAUDE.md` for
+Claude Code), then edit the three phrase lines to whatever you naturally say. In Cursor, edit the
+"Your phrases" block at the top of the rule file instead.
 
 **No skills support at all?** Paste the body of [`cursor/ship-and-share.mdc`](cursor/ship-and-share.mdc)
 into your agent's instructions file. It is the whole thing in one page.
