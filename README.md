@@ -62,9 +62,9 @@ under NDA, and dunking on people or competitors. Plus whatever you put in your o
 
 Real drafts from the week I built this, working on an AI character product:
 
-> Spent a week trying to stop my AI character from interviewing people. A question in 80% of her
-> replies. The cause turned out to be my own rules telling her to "be interested". Deleted two rule
-> blocks. 80% became 57%. The fix was subtraction.
+> My AI character kept interviewing people. A question in about 80% of her replies. I kept adding
+> rules to fix it. Then I tested deleting them instead. The cause was my own rules telling her to
+> "be interested". Two rule blocks gone: 80% became 57%. The fix was subtraction.
 
 > Same still, same model, two renders. One kept her face, one turned her into a stranger by second
 > three. The only difference: I let the canvas default to landscape on a portrait photo. Match the
