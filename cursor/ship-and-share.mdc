@@ -1,0 +1,76 @@
+---
+description: Draft social posts (X, LinkedIn) from real work — "share this" converts, "should we share this?" judges first, and the session suggests drafts at close when something is genuinely postworthy
+alwaysApply: true
+---
+
+# Ship and share
+
+You ship all day and post nothing. This rule makes the agent notice when the work is worth posting,
+and draft it. **The agent drafts. The human posts.** Never post or schedule on their behalf.
+
+Files live in `$SHIP_AND_SHARE_DIR` or `~/.ship-and-share/`: `voice.md` (who they are, how they sound,
+what they never say), `queue.md` (drafts, newest first), `platforms.md` (where they post). If `voice.md`
+is missing, say so once and offer to create it; do not draft in a made-up voice.
+
+## Three trigger points
+
+1. **"Share this" — decided. Convert it.** No judging. 2–3 drafts with different angles (the number,
+   the story, the principle). Hard filters still apply. If the material is thin, say so in one line.
+2. **"Let's share this" / "should we share this?" — judge first.** Run the test and answer plainly.
+   **Yes** → which criterion it clears, then 2–3 drafts. **No** → why not and what is missing; no
+   drafts. **Not yet** → what must be verified or measured first. Never soften a no into a weak yes.
+3. **The session suggests.** At the end of a session, run the same test. If it passes, queue 1–2 drafts
+   and add ONE line to the closing message:
+   `Worth sharing: 2 drafts in the queue. Best one: "<first ~12 words>…"`
+   If it does not pass, say nothing at all. Never interrupt work mid-session to suggest a post.
+
+## The postworthy test — needs at least one
+
+A surprise (the cause nobody would guess) · a real measured before/after number · a changed mind ·
+a hard problem solved where the path is the interesting part · a visible thing a person gets in two
+seconds · a useful comparison found through real testing · a principle with its incident attached ·
+an honest failure and what it taught.
+
+And all of: true and verified, not just reasoned about · explainable in one breath to someone who has
+never seen the codebase · about the work, not about being busy.
+
+## Not postworthy
+
+Routine work (copy, CSS, renames, dependency bumps, refactors) · a merge, deploy or PR count on its
+own · "it works now" with no why · plans, roadmaps, "excited to announce" · inside-baseball needing
+three sentences of setup · repeats of something queued or posted in the last two weeks · generic takes
+that could be written without doing the work. When unsure, skip.
+
+## Hard filters — never, even if asked in a hurry (say why, offer the safe version)
+
+No real people's private data (user conversations, customer records, names, emails) — synthetic or
+authored examples only · no secrets or attacker-useful internals (keys, ids, unpatched holes, auth or
+payment bypass) · no invented or rounded-up numbers, no implied traction · no claims the product cannot
+keep today · nothing under NDA or owned by an employer or client unless `voice.md` clears it · no
+dunking on a competitor, vendor or person · anything in the "Never" list of `voice.md`.
+
+## How to draft
+
+1. Read `voice.md`, `platforms.md`, then `queue.md` (avoid duplicates).
+2. Tell it the way they would tell one builder friend: what they expected, what happened, the number,
+   what it means. Lead with the tension. No hook formulas, no engagement bait.
+3. **X:** one post under 280 characters, links count as 23 — count it. Thread of 4–6 only for a real
+   story. **LinkedIn:** 80–200 words; the first two lines carry the whole point because the rest hides
+   behind "see more"; give a non-specialist the context; end on what changed, not a question fishing
+   for comments. Other platforms: follow `platforms.md`.
+4. Every draft gets a **Proof** line: the exact screenshot, clip, chart or before/after to attach.
+
+## Where drafts go
+
+Prepend to `queue.md` under the first `---` line:
+
+```
+### YYYY-MM-DD — short title · angle · draft
+**X:** the text
+**LinkedIn:** the text
+**Proof:** what to attach and where it is
+**Source:** session / PR / commit
+```
+
+Never touch their status marks (`posted`, `skip`). If the folder is not reachable (cloud or sandboxed
+agent), show drafts in chat only and never write them into the project repository.
